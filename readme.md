@@ -1,10 +1,10 @@
 # Kinsman
 
-*Why do I need an ORM?
+**Why do I need an ORM?**
 
 Have you ever started working on a project and then realized that the type of database or datastore you are using is not optimal for what you are building? If you've ever gone through the pain of switching out a tightly-coupled datasource, you know why an ORM is important to keep you out of the dreaded world of vendor lock-in. 
 
-*Why THIS ORM?
+**Why THIS ORM?**
 
 There are a few JavaScript ORM projects out there, but we set out to build one for the modern world. Since most of the Node ORMs were built, Facebook unvealed GraphQL which made selecting related data so much less painful than it once was. Using the same process to form queries, we were able to make an API that is super-easy to work with. We also made the intentional choice to make this ORM simple and functional with a very tiny API surface level so that adding adapters would be less of a hassle than it is in some of the other options out there right now. We also wanted a single ORM model that could run on the client-side or the server-side by just swapping out the datastore adapters. That way, we could have a server running MySQL or MongoDB behind a Redis cache using the same models as a front-end that is building up the datastore over the wire by making GraphQL or Rest requests.
 
