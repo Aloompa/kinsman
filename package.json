@@ -1,0 +1,21 @@
+{
+  "name": "kinsman",
+  "version": "0.0.1",
+  "description": "A modern functional ORM for JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tyson Cadenhead",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^21.1.5",
+    "babel-jest": "^21.2.0",
+    "jest": "^21.2.1",
+    "typescript": "^2.6.1"
+  },
+  "dependencies": {
+    "graphml-parser": "^1.4.0",
+    "ramda": "^0.25.0"
+  }
+}
