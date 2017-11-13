@@ -2,9 +2,12 @@
   "name": "kinsman",
   "version": "0.0.1",
   "description": "A modern functional ORM for JavaScript",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/jest",
+    "start": "node_modules/.bin/tsc",
+    "watch": "node_modules/.bin/tsc --watch",
+    "prepublish": "npm run start"
   },
   "author": "Tyson Cadenhead",
   "license": "ISC",

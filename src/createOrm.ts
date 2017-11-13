@@ -38,6 +38,8 @@ const createOrm = R.curry((options, initialState) => {
                         message: `${key} is not valid.`
                     };
                 }
+
+                return false;
             }).filter(err => err);
 
             if (validations.length) {
@@ -79,7 +81,7 @@ const createOrm = R.curry((options, initialState) => {
         return models[modelKey];
     };
 
-    const getFilteredAttributes = (modelKey, attributes, join = {}) => {
+    const getFilteredAttributes = (modelKey, attributes) => {
         const model = getModel(modelKey);
         
         return attributes.filter(key => {
@@ -88,7 +90,7 @@ const createOrm = R.curry((options, initialState) => {
     };
 
     const findOneFrom = (modelKey, options) => {
-        const filteredAttributes = getFilteredAttributes(modelKey, options.attributes, options.join);
+        const filteredAttributes = getFilteredAttributes(modelKey, options.attributes);
         
         return adapter.findOneFrom(modelKey, {
             ...options,

@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 
-const sessionAdapter = (options = {}) => {
+const sessionAdapter = (options: any = {}) => {
 
     let state = {};
 
@@ -46,7 +46,7 @@ const sessionAdapter = (options = {}) => {
             });
         },
 
-        update: (modelName, { body, model, where }) => {
+        update: (modelName, { body, where }) => {
 
             const index = R.findIndex(R.whereEq(where))(state[modelName]);
             

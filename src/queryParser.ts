@@ -2,7 +2,7 @@ import * as R from 'ramda';
 import * as parser from 'graphml-parser';
 
 const applyDynamicParams = (query, params) =>
-    Object.keys(params).reduce((prev, current) => {
+    Object.keys(params).reduce((_prev, current) => {
         const key = `$${current}`;
         return query.replace(key, params[current]);
     }, query);
