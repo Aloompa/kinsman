@@ -12,6 +12,6 @@ const hasOne = config => (where, options, orm, modelKey) => {
             }
         })
     });
-}
+};
 
 export default hasOne;

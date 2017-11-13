@@ -14,6 +14,6 @@ const hasMany = config => (where, options, orm, modelKey) => {
             }))
         );
     });
-}
+};
 
 export default hasMany;
