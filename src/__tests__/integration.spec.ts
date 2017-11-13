@@ -64,13 +64,11 @@ describe('Integration tests', () => {
 
     it('Should create a person', () => {
         return orm.create('Person', {
-            body: {
-                name: 'Chewbacca',
-                height: 8,
-                gender: 'male',
-                home_planet_id: undefined,
-                vehicle_ids: [2]
-            }
+            name: 'Chewbacca',
+            height: 8,
+            gender: 'male',
+            home_planet_id: undefined,
+            vehicle_ids: [2]
         }).then(result => {
             expect(result.name).toBe('Chewbacca');
             expect(result.id).toBe(4);
@@ -78,9 +76,7 @@ describe('Integration tests', () => {
     });
 
     it('Should not create a person if they are invalid', () => {
-        return orm.create('Person', {
-            body: {}
-        }).catch(err => {
+        return orm.create('Person', {}).catch(err => {
             expect(err[0].attribute).toBe('name');
             expect(err[0].message).toBe('name is not valid.');
         });
@@ -88,16 +84,13 @@ describe('Integration tests', () => {
 
     it('Should update a person', () => {
         return orm.update('Person', {
-            where: {
-                id: 4
-            },
-            body: {
-                name: 'Yoda',
-                height: 3,
-                gender: 'male',
-                home_planet_id: undefined,
-                vehicle_ids: []
-            }
+            name: 'Yoda',
+            height: 3,
+            gender: 'male',
+            home_planet_id: undefined,
+            vehicle_ids: []
+        }, {
+            id: 4
         }).then(result => {
             expect(result.name).toBe('Yoda');
             expect(result.id).toBe(4);
@@ -106,9 +99,7 @@ describe('Integration tests', () => {
 
     it('Should remove a person', () => {
         return orm.destroy('Person', {
-            where: {
-                id: 4
-            }
+            id: 4
         }).then(result => {
             expect(result).toBeFalsy();
         });

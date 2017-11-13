@@ -140,28 +140,32 @@ const createOrm = R.curry((options, initialState) => {
             return queryAll(method, convertQueryShape(queryResult.methods[method]));
         },
 
-        create: (modelKey, options) => {
+        create: (modelKey, body, where = {}) => {
             const model = getModel(modelKey);
 
-            return validate(modelKey, options.body)
+            return validate(modelKey, body)
                 .then(() => adapter.create(modelKey, {
-                    ...options,
+                    where,
+                    body,
                     model
                 }));
         },
 
-        update: (modelKey, options) => {
+        update: (modelKey, body, where = {}) => {
             const model = getModel(modelKey);
 
-            return validate(modelKey, options.body)
+            return validate(modelKey, body)
                 .then(() => adapter.update(modelKey, {
-                ...options,
+                where,
+                body,
                 model
             }));
         },
 
-        destroy: (modelKey, options) => {
-            return adapter.destroy(modelKey, options);
+        destroy: (modelKey, where) => {
+            return adapter.destroy(modelKey, {
+                where
+            });
         },
 
         validate
